@@ -36,7 +36,7 @@ AFRAME.registerComponent('sky-view', {
     tick: function(time, timeDelta) {
         const d = timeDelta*this.data.sunspeed
         this.data.inclination += d
-        this.data.azimuth += (d/5)
+        this.data.azimuth += (d/7)
         const theta = Math.PI*(this.data.inclination-0.5)
         const phi = 2*Math.PI*(this.data.azimuth-0.5)
         this.el.setAttribute('material', 'sunPosition', {
