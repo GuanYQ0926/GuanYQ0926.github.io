@@ -30,7 +30,7 @@ AFRAME.registerComponent('sky-view', {
         this.el.setAttribute('material', 'sunPosition', {
             x: this.data.distance*Math.cos(phi),
             y: this.data.distance*Math.sin(phi)*Math.sin(theta),
-            z: -this.data.distance*Math.sin(phi)*Math.cos(theta)
+            z: this.data.distance*Math.sin(phi)*Math.cos(theta)
         })
     },
     tick: function(time, timeDelta) {
@@ -41,7 +41,7 @@ AFRAME.registerComponent('sky-view', {
         this.el.setAttribute('material', 'sunPosition', {
             x: this.data.distance*Math.cos(phi),
             y: this.data.distance*Math.sin(phi)*Math.sin(theta),
-            z: -this.data.distance*Math.sin(phi)*Math.cos(theta)
+            z: this.data.distance*Math.sin(phi)*Math.cos(theta)
         })
     }
 })
