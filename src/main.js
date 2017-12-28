@@ -19,14 +19,14 @@ AFRAME.registerShader('sky-shaders', {
 
 AFRAME.registerComponent('sky-view', {
     schema: {
-        inclination: {default: 1.5},
+        inclination: {default: -0.5},
         azimuth: {default: 0.25},
         distance: {default: 400000},
         sunspeed: {default: 0.00003}
     },
     init: function() {
-        const theta = Math.PI*(this.data.inclination-0.5)
-        const phi = 2*Math.PI*(this.data.azimuth-0.5)
+        const theta = Math.PI*(this.data.inclination+0.5)
+        const phi = 2*Math.PI*(this.data.azimuth+0.5)
         this.el.setAttribute('material', 'sunPosition', {
             x: this.data.distance*Math.cos(phi),
             y: this.data.distance*Math.sin(phi)*Math.sin(theta),
@@ -35,9 +35,9 @@ AFRAME.registerComponent('sky-view', {
     },
     tick: function(time, timeDelta) {
         const d = timeDelta*this.data.sunspeed
-        this.data.inclination += d
-        const theta = Math.PI*(this.data.inclination-0.5)
-        const phi = 2*Math.PI*(this.data.azimuth-0.5)
+        this.data.inclination -= d
+        const theta = Math.PI*(this.data.inclination+0.5)
+        const phi = 2*Math.PI*(this.data.azimuth+0.5)
         this.el.setAttribute('material', 'sunPosition', {
             x: this.data.distance*Math.cos(phi),
             y: this.data.distance*Math.sin(phi)*Math.sin(theta),
