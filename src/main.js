@@ -22,7 +22,7 @@ AFRAME.registerComponent('sky-view', {
         inclination: {default: 1.5},
         azimuth: {default: 0.25},
         distance: {default: 400000},
-        sunspeed: {default: 0.00003}
+        sunspeed: {default: 0.00001}
     },
     init: function() {
         const theta = Math.PI*(this.data.inclination-0.5)
